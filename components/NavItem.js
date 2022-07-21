@@ -3,13 +3,10 @@ import { useAppContext } from '../context/state';
 import classNames from 'classnames';
 
 export default function NavItem({ planet }) {
-  const { currentPlanet, changePlanet } = useAppContext();
+  const { currentPlanet, changePlanet, color } = useAppContext();
   function handleClick() {
     changePlanet(planet);
-    console.log(currentPlanet.accentColor);
   }
-
-  const borderColor = `black`;
 
   return (
     <li>
