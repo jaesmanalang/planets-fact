@@ -1,14 +1,44 @@
-import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { useAppContext } from '../context/state';
 
-export default function Button({ num, title }) {
-  const { currentInfo, changeInfo, currentPlanet, color } = useAppContext();
+export default function Button({ num, title, isMobile }) {
+  const { currentInfo, changeInfo, currentPlanet } = useAppContext();
   const intNum = parseInt(num);
 
   const handleClick = () => {
     changeInfo(intNum);
   };
+
+  if (isMobile) {
+    return (
+      <button
+        className={classNames(
+          'uppercase tracking-[2px] font-bold opacity-50 text-[9px] h-full relative px-1 before:absolute before:left-0 before:right-0 before:bottom-0 before:h-[4px]',
+          {
+            ' before:bg-mercury opacity-100':
+              intNum === currentInfo.num && currentPlanet?.name === 'Mercury',
+            ' before:bg-venus opacity-100':
+              intNum === currentInfo.num && currentPlanet?.name === 'Venus',
+            ' before:bg-earth opacity-100':
+              intNum === currentInfo.num && currentPlanet?.name === 'Earth',
+            ' before:bg-mars opacity-100':
+              intNum === currentInfo.num && currentPlanet?.name === 'Mars',
+            ' before:bg-jupiter opacity-100':
+              intNum === currentInfo.num && currentPlanet?.name === 'Jupiter',
+            ' before:bg-saturn opacity-100':
+              intNum === currentInfo.num && currentPlanet?.name === 'Saturn',
+            ' before:bg-uranus opacity-100':
+              intNum === currentInfo.num && currentPlanet?.name === 'Uranus',
+            ' before:bg-neptune opacity-100':
+              intNum === currentInfo.num && currentPlanet?.name === 'Neptune',
+          }
+        )}
+        onClick={handleClick}
+      >
+        {title}
+      </button>
+    );
+  }
 
   return (
     <button

@@ -3,7 +3,10 @@ module.exports = {
   content: ['./pages/**/*.{js,jsx}', './components/**/*.{js,jsx}'],
   theme: {
     container: {
-      padding: '2rem',
+      padding: {
+        DEFAULT: '1.5rem',
+        md: '2rem',
+      },
       center: true,
     },
     fontFamily: {
