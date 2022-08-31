@@ -15,6 +15,11 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=League+Spartan:wght@400;700&display=swap"
             rel="stylesheet"
           />
+          <link
+            rel="shortcut icon"
+            href="/assets/favicon.ico"
+            type="image/x-icon"
+          />
         </Head>
         <body className="font-body text-white">
           <Main />
